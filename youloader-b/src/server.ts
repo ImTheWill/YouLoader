@@ -1,11 +1,18 @@
 import express from 'express'
+import routes from './routes/index.ts'
+import { port, environment } from './config/environment.ts'
+import { PostgresDataSource } from './config/database.ts'
+
 const app = express()
-const port: number = Number(process.env.PORT) || 3000
 
-app.get('/', (req, res) => {
-    res.send('Holla Will')
-})
+app.use('/api', routes)
 
-app.listen(port, () => {
-    console.log(`Server listening on port: ${port.toString()} `)
-})
+try {
+    app.listen(port)
+    console.log(`Server running at port: ${port}`)
+
+    await PostgresDataSource.initialize()
+    console.log(`Database successfully connected`)
+} catch (e) {
+    console.error('Error: ', e)
+}

@@ -4,7 +4,9 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "strictNullChecks": true,
-        "noUncheckedIndexedAccess": true
+        "noUncheckedIndexedAccess": true,
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
     },
     "include": ["**/*.ts"],
     "exclude": ["dist"]

@@ -1,1 +1,1 @@
-docker run --name YouLoader -e POSTGRES_PASSWORD=Youloader79 -d postgres
+docker run --name YouLoader -e POSTGRES_USER=YouLoader -e POSTGRES_PASSWORD=Youloader79 -d postgres
