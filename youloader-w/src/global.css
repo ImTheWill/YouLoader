@@ -1,3 +1,9 @@
-.root{
+@import "tailwindcss"
+
+@theme inline{
   
 }
+
+@layer utilities{
+  
+} 
