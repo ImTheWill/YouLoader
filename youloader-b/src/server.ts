@@ -1,5 +1,6 @@
 import express from 'express'
 import routes from './routes/index.ts'
+import 'reflect-metadata'
 import { port, environment } from './config/environment.ts'
 import { PostgresDataSource } from './config/database.ts'
 

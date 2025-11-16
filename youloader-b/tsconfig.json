@@ -7,6 +7,9 @@
         "noUncheckedIndexedAccess": true,
         "allowImportingTsExtensions": true,
         "noEmit": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "strictPropertyInitialization": false
     },
     "include": ["**/*.ts"],
     "exclude": ["dist"]
