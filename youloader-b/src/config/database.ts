@@ -13,5 +13,5 @@ export const PostgresDataSource = new DataSource({
     password: databasePassword,
     database: databaseUser,
     entities: [User, FileFolder, File],
-    // synchronize: true,
+    synchronize: true,
 })

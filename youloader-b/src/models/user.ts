@@ -11,7 +11,7 @@ import { FileFolder } from './file.ts'
 @Entity()
 export class User {
     @PrimaryGeneratedColumn('uuid')
-    id: number
+    id: string
 
     @Column('varchar', { length: 200 })
     firstName: string

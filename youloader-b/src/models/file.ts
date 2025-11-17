@@ -30,7 +30,7 @@ export class FileFolder {
 export class File {
     @PrimaryGeneratedColumn('uuid')
     id: string
-
+    //foreign key
     @ManyToOne(() => FileFolder, (folder) => folder.files)
     @JoinColumn()
     folder: FileFolder
