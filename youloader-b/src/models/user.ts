@@ -1,23 +1,24 @@
+import bcrypt from 'bcrypt'
 import {
     Entity,
     PrimaryGeneratedColumn,
     Column,
     CreateDateColumn,
     OneToOne,
-    JoinColumn,
+    BeforeInsert,
 } from 'typeorm'
 import { FileFolder } from './file.ts'
 
 @Entity()
-export class User {
+export class Users {
     @PrimaryGeneratedColumn('uuid')
-    id: number
+    id: string
 
     @Column('varchar', { length: 200 })
-    firstName: string
+    first_name: string
 
     @Column('varchar', { length: 200 })
-    lastName: string
+    last_name: string
 
     @Column('varchar', { length: 200 })
     email: string
@@ -29,8 +30,8 @@ export class User {
     password: string
 
     @CreateDateColumn()
-    createdAt: Date
+    created_at: Date
 
-    @OneToOne(() => FileFolder, (folder) => folder.user)
+    @OneToOne(() => FileFolder, (folder) => folder.user, { cascade: true })
     folder: FileFolder
 }

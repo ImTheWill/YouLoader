@@ -1,7 +1,7 @@
-import express from "express";
-const router = express.Router();
+import express from 'express'
 
-router.get("/", async()=>{
+const router = express.Router()
 
-})
-export default router;
+router.get('/getFile', async () => {})
+
+export default router

@@ -9,38 +9,38 @@ import {
     JoinColumn,
     ManyToOne,
 } from 'typeorm'
-import { User } from './user.ts'
+import { Users } from './user.ts'
 
 @Entity()
 export class FileFolder {
     @PrimaryGeneratedColumn('uuid')
     id: string
     //foreign
-    @OneToOne(() => User, (user) => user.folder)
+    @OneToOne(() => Users, (user) => user.folder)
     @JoinColumn()
-    user: User
+    user: Users
 
     @OneToMany(() => File, (file) => file.folder)
     files: File[]
 
-    @Column('int')
-    totalBytes: number
+    @Column('int', { default: 0 })
+    total_bytes: number
 }
 @Entity()
 export class File {
     @PrimaryGeneratedColumn('uuid')
     id: string
-
+    //foreign key
     @ManyToOne(() => FileFolder, (folder) => folder.files)
     @JoinColumn()
     folder: FileFolder
 
     @Column('varchar', { length: 200 })
-    fileName: string
+    file_name: string
 
     @Column('int')
     bytes: number
 
     @CreateDateColumn()
-    createdAt: Date
+    created_at: Date
 }
